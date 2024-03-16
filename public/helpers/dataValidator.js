@@ -1,6 +1,8 @@
+// Importing helper function to clear the form after user Submits the data.
+import clearForm from "./clearForm.js";
 
 const form = document.querySelector('form');  // Targeting form element in DOM 
-
+// console.log(form)
 
 form.addEventListener('submit', (event) => { // Event listener when user clicks submit button 
     event.preventDefault();
@@ -15,7 +17,6 @@ form.addEventListener('submit', (event) => { // Event listener when user clicks 
     const errMsg = document.getElementById('errMsg')
 
     const data = { firstname, lastname, from, to, message }
-
 
     const options = {
         method: "POST",
@@ -47,6 +48,7 @@ form.addEventListener('submit', (event) => { // Event listener when user clicks 
 
         }   
         sendData();
+        clearForm(form); // To clear the input fields after the user submits the form // 
         
 
 
