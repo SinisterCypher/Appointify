@@ -15,9 +15,12 @@
   --color-gray: #4e4e4e;
   --text-gray: #959595;
   --color-dark-mild: #1c1c1ca4;
+  --test-bg-color: #b96ce6;
+  --test-placeholder-color : #300a323d ; 
 }
-
-::-webkit-scrollbar {
+/* #300a323d
+ */
+ ::-webkit-scrollbar {
   width: 10px;
 }
 
@@ -26,8 +29,7 @@ body {
   font-size: 17px;
   overflow: hidden auto;
   font-family: 'Nunito', sans-serif;
-  background: var(--dark-navi);
-  color: var(--pure-white);
+  background: var(--test-bg-color);
   line-height: 1.5;
 
 }
@@ -44,10 +46,13 @@ header {
   }
 }
 
+
 header {
-  p {
+  p {     
     text-align: center;
-    color: var(--text-gray);
+    color: var(--dark-navi);
+    margin-top: 30px;
+    font-size: 22px;
 
   }
 }
@@ -96,12 +101,13 @@ section#appointment-tracker {
     font-size: 1.9rem;
     margin-bottom: .3rem;
 
+
   }
 
   p {
     font-size: .9rem;
     width: 90%;
-    color: var(--text-gray);
+    color: var(--pure-white);
   }
 }
 
@@ -131,14 +137,10 @@ section#appointment-tracker {
     padding: 11px;
     outline: none;
     color: white;
-    border: .8px solid var(--color-gray);
-    background: var(--color-dark-mild);
-    border-radius: 2px;
+    border: .8px solid #300a323d;
+    background: var(--test-placeholder-color);
+    border-radius: 6px;
   }
-
-
-
-
 
 
   /* Selector for other inputs  */
@@ -148,29 +150,36 @@ section#appointment-tracker {
     padding: 11px;
     outline: none;
     color: white;
-    border: .8px solid var(--color-gray);
-    background: var(--color-dark-mild);
-    border-radius: 2px;
+    border: .8px solid #300a323d;
+    background: var(--test-placeholder-color);
+    border-radius: 6px;
     font-family: 'Nunito', sans-serif;
     resize: none;
   }
 
   button[type="submit"] {
     display: block;
-    width: 55%;
-    padding: 11px;
-    background:linear-gradient(to right, purple 30%, orange);
+    /* width: 55%; */
+    background: linear-gradient(to right, purple 30%, orange);
     /* background: green; */
     outline: none;
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 3px;
+    border-radius: 8px;
     transition: all .3s;
+
+    padding: 13px 18px;
+    /* width:60%; */
+    font-size: 1.1rem;
+    font-family: 'Nunito';
+    font-weight: 500;
+    letter-spacing: 2px;
+}
   }
 
-  div button:hover {
-    background:linear-gradient(to left, purple 30%, orange);
+  div button#submitbtn:hover{
+    background: linear-gradient(to left, purple 30%, orange);
     /* background-color: white; */
     color: var(--pure-white);
   }
@@ -180,12 +189,10 @@ section#appointment-tracker {
     button[type="submit"] {
       display: block;
       width: 100%;
+      padding:11px;
+      font-size:.7rem;
     }
   }
-
-}
-
-
 
 
 .right-side-appointment-calender {
@@ -195,9 +202,9 @@ section#appointment-tracker {
   padding: 10px;
   align-self: center;
   font-size: .9rem;
-  background-image: radial-gradient(circle at top left, rgba(128, 16, 184, 0.547), rgba(65, 5, 176, 0.283), transparent),
+  /* background-image: radial-gradient(circle at top left, rgba(128, 16, 184, 0.547), rgba(65, 5, 176, 0.283), transparent),
     radial-gradient(circle at bottom right, rgba(4, 141, 132, 0.464), rgba(13, 215, 184, 0.651), transparent),
-    radial-gradient(circle at bottom left, rgba(199, 105, 17, 0.811), rgba(195, 6, 170, 0.597), transparent);
+    radial-gradient(circle at bottom left, rgba(199, 105, 17, 0.811), rgba(195, 6, 170, 0.597), transparent); */
   backdrop-filter: blur(10px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -207,7 +214,7 @@ section#appointment-tracker {
 
 .fc-day {
   transition: background-color 0.3s ease;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .fc-day:hover {
@@ -260,8 +267,15 @@ section#appointment-tracker {
 
 /* For extra small devices  */
 @media (max-width: 576px) {
+  body{
+    font-size:14px;
+  }
   .appointment-container {
     gap: 1rem;
+  }
+
+  #userSelection{
+    font-size:16px;
   }
 
   #fullname {
@@ -280,16 +294,40 @@ section#appointment-tracker {
 
   button[type="submit"] {
     width: 100%;
+    font-size:12px;
+    padding:11px;
   }
 }
 
-/* Change the white background */
-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 30px var(--dark-navi) inset !important;
+#dateplaceholder {
+  margin-top: 18px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
-/* Change the text color */
-input:-webkit-autofill {
-  -webkit-text-fill-color: var(--pure-white) !important;
-  
+#userSelection {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 15px;
+  background: linear-gradient(to right, #09423d 30%, #40033f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+
 }
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--dark-navi);
+}
+
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #9854bb  inset !important;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: var(--dark-navi) !important;
+
+}
+

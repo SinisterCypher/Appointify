@@ -16,7 +16,7 @@ form.addEventListener('submit', (event) => { // Event listener when user clicks 
     const appointmentDate = document.getElementById('userSelection').innerHTML;
     const errMsg = document.getElementById('errMsg')
 
-    const data = { firstname, lastname, from, to, message }
+    const data = { firstname, lastname, from, to, message, appointmentDate }
 
     const options = {
         method: "POST",
@@ -34,7 +34,7 @@ form.addEventListener('submit', (event) => { // Event listener when user clicks 
                 if (response.ok) {
                     const data = await response.json();
                     console.log(data.message);
-                    errMsg.style.color= 'green'
+                    errMsg.style.color= 'green';
                     errMsg.innerText = data.message;
                 }
    
@@ -50,11 +50,12 @@ form.addEventListener('submit', (event) => { // Event listener when user clicks 
         sendData();
         clearForm(form); // To clear the input fields after the user submits the form // 
         
-
+                
 
     }
     else {
-        errMsg.innerText = "Please Select a Appointment date!!"
+        errMsg.style.background = 'linear-gradient(to left, red, rgb(10, 54, 165))';
+        errMsg.innerText = "Please Select a Appointment date !!"
         return
     }
 })

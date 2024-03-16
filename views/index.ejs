@@ -25,10 +25,10 @@
           <div class="appointment-container_head">
             <h2>Let's connect via an appointment</h2>
             <p>Let's align our meetings! Reach out and let the magic of collaboration illuminate the skies!</p>
-            <p id="errMsg" style="color:#b76ee4 ; text-align: center; font-weight: bold; margin-top: 6px; font-size: 22px;" ></p>
+            <p id="errMsg" style="text-align: center; font-weight: bold; margin-top: 6px; font-size: 22px;" ></p>
           </div>
           <div class="appointment-container_body">
-            <form method="POST">
+            <form method="POST" autocomplete="off">
               <div id="fullname" class="form-group">
                 <input type="text" name="lastname" placeholder="Last Name" id="lastname" required>
                 <input type="text" placeholder="First Name" name="firstname" id="firstname" required>
@@ -49,14 +49,14 @@
                   placeholder="Type your Message here" required></textarea>
               </div>
               <div>
-                <button type="submit">Send Appointment</button>
+                <button id="submitbtn" type="submit">Set Appointment</button>
               </div>
             </form>
           </div>
         </div>
       </div>
       <div class="right-side-appointment-calender glass" id="calendar">
-        <p> You have selected : <span id="userSelection"></span> </p>
+        <p id="dateplaceholder"> You have selected : <span id="userSelection"></span> </p>
       </div>
     </section>
   </main>
