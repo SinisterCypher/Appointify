@@ -6,25 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Appointify</title>
   <link rel="stylesheet" href="../style/index.css">
-  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      let calendarEl = document.getElementById('calendar');
-       if (calendarEl) {
-        let calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth'
-        });
-
-        calendar.render();
-      } else {
-        console.error('Calendar element not found');
-      }
-    })
-  </script>
+  <script defer src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+  <script defer type="module" src="../helpers/renderCalendar.js"> </script>
+  <script defer type="module" src="../helpers/dataValidator.js"></script>
 
 </head>
-
 <body>
   <header>
     <h1 class="header_title">Get in Touch</h1>
@@ -42,22 +28,23 @@
           <div class="appointment-container_body">
             <form>
               <div id="fullname" class="form-group">
-                  <input type="text" name="lastname" placeholder="Last Name" id="lastname">
-                  <input type="text" placeholder="First Name" name="firstname" id="firstname">
+                <input type="text" name="lastname" placeholder="Last Name" id="lastname" required>
+                <input type="text" placeholder="First Name" name="firstname" id="firstname" required>
               </div>
               <div class="form-group">
                 <label>
-                  <input type="email" name="email" placeholder="From: youremail@email.com" id="email">
+                  <input type="email" name="email" placeholder="From: youremail@email.com" id="email" required>
                 </label>
               </div>
 
               <div class="form-group">
                 <label>
-                  <input type="email" name="rec_email" placeholder="To: reciever@email.com" id="rec_email">
+                  <input type="email" name="rec_email" placeholder="To: reciever@email.com" id="rec_email" required>
                 </label>
               </div>
               <div class="form-gr">
-                <textarea name="message" id="message" cols="30" rows="10" placeholder="Type your Message here"></textarea>
+                <textarea name="message" id="message" cols="30" rows="10"
+                  placeholder="Type your Message here" required></textarea>
               </div>
               <div>
                 <button type="submit">Send Appointment</button>
@@ -67,15 +54,15 @@
         </div>
       </div>
       <div class="right-side-appointment-calender glass" id="calendar">
-        <p> You have selected : <span id="userSelection"> </span> </p>
+        <p> You have selected : <span id="userSelection"></span> </p>
       </div>
     </section>
   </main>
 
-<script>
+  <script>
 
 
-</script>
+  </script>
 
 
 </body>
