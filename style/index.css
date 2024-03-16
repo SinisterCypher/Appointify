@@ -1,0 +1,285 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+:root {
+  --dark-navi: #0A0D17;
+  --pure-white: #fff;
+  --color-gray: #4e4e4e;
+  --text-gray: #959595;
+  --color-dark-mild: #1c1c1ca4;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+
+body {
+  font-size: 17px;
+  overflow: hidden auto;
+  font-family: 'Nunito', sans-serif;
+  background: var(--dark-navi);
+  color: var(--pure-white);
+  line-height: 1.5;
+
+}
+
+header {
+  h1.header_title {
+    text-align: center;
+    font-size: 4rem;
+    font-size: 60px;
+    margin-top: 3.5rem;
+    background: linear-gradient(to left, red, rgb(10, 54, 165));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+header {
+  p {
+    text-align: center;
+    color: var(--text-gray);
+
+  }
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section#appointment-tracker {
+  background-color: #63636320;
+  max-width: 100%;
+  width: 1200px;
+  margin-top: 6rem;
+  /* height: 60vh; */
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  justify-items: space-around;
+  gap: .9rem;
+  /* max-height: 100%; */
+  border-radius: 20px;
+  padding: 15px 25px;
+  background: url('../icons/front-shapes.png') right bottom / contain no-repeat fixed;
+}
+
+.left-side-appointment-form {
+  background-color: transparent;
+  margin: 1.1rem;
+  padding: .5rem;
+  display: flex;
+  flex: 1;
+  /* text-align: center; */
+}
+
+.appointment-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.9rem;
+  justify-content: center;
+}
+
+.appointment-container_head {
+  h2 {
+    font-size: 1.9rem;
+    margin-bottom: .3rem;
+
+  }
+
+  p {
+    font-size: .9rem;
+    width: 90%;
+    color: var(--text-gray);
+  }
+}
+
+.appointment-container_body {
+
+  #fullname {
+    display: flex;
+    gap: .5rem;
+    /* align-items: center; */
+    /* justify-content: center; */
+    justify-content: stretch;
+    width: 100%;
+  }
+
+  form {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    justify-content: space-around;
+
+  }
+
+
+  #fullname input {
+    flex: 1;
+    align-items: stretch;
+    padding: 11px;
+    outline: none;
+    color: white;
+    border: .8px solid var(--color-gray);
+    background: var(--color-dark-mild);
+    border-radius: 2px;
+  }
+
+
+
+
+
+
+  /* Selector for other inputs  */
+  form input:not(#fullname input),
+  textarea {
+    width: 100%;
+    padding: 11px;
+    outline: none;
+    color: white;
+    border: .8px solid var(--color-gray);
+    background: var(--color-dark-mild);
+    border-radius: 2px;
+    font-family: 'Nunito', sans-serif;
+    resize: none;
+  }
+
+  button[type="submit"] {
+    display: block;
+    width: 55%;
+    padding: 11px;
+    background:linear-gradient(to right, purple 30%, orange);
+    /* background: green; */
+    outline: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    transition: all .3s;
+  }
+
+  div button:hover {
+    background:linear-gradient(to left, purple 30%, orange);
+    /* background-color: white; */
+    color: var(--pure-white);
+  }
+
+  @media(max-width:500px) {
+
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+    }
+  }
+
+}
+
+
+
+
+.right-side-appointment-calender {
+  flex: 1;
+  width: 60%;
+  height: 100%;
+  padding: 10px;
+  align-self: center;
+  font-size: .9rem;
+  background-image: radial-gradient(circle at top left, rgba(128, 16, 184, 0.547), rgba(65, 5, 176, 0.283), transparent),
+    radial-gradient(circle at bottom right, rgba(4, 141, 132, 0.464), rgba(13, 215, 184, 0.651), transparent),
+    radial-gradient(circle at bottom left, rgba(199, 105, 17, 0.811), rgba(195, 6, 170, 0.597), transparent);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  padding: 20px;
+}
+
+.fc-day {
+  transition: background-color 0.3s ease;
+  cursor:pointer;
+}
+
+.fc-day:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+/* Responsive Media Queries  */
+/* For large screen devices  */
+@media (max-width: 1200px) {
+  section#appointment-tracker {
+    flex-direction: column;
+    width: 90%;
+    padding: 10px;
+  }
+
+  .left-side-appointment-form,
+  .right-side-appointment-calender {
+    width: 100%;
+  }
+}
+
+/* For medium sized devices  */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  header h1.header_title {
+    font-size: 40px;
+    margin-top: 2rem;
+  }
+
+  section#appointment-tracker {
+    margin-top: 4rem;
+  }
+
+  .appointment-container_head h2 {
+    font-size: 1.5rem;
+  }
+
+  .appointment-container_head p,
+  .right-side-appointment-calender {
+    font-size: 0.8rem;
+  }
+
+}
+
+/* For extra small devices  */
+@media (max-width: 576px) {
+  .appointment-container {
+    gap: 1rem;
+  }
+
+  #fullname {
+    flex-direction: column;
+  }
+
+  #fullname input {
+    flex: none;
+    width: 100%;
+  }
+
+  form input:not(#fullname input),
+  textarea {
+    width: 100%;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+  }
+}
+
