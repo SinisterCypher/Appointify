@@ -3,15 +3,11 @@ import fs from 'fs';
 import { promisify } from 'util';
 import handlebars from 'handlebars';
 import path from "path";
-import { config } from 'dotenv';
-config({ path: './envFiles/.env' });
 
-// Path resolving
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+
+
+
 
 let transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -24,8 +20,7 @@ let transporter = nodemailer.createTransport({
   }
 });
 
-const IMG_1_URL = "/icons/front-shapes.png";
-const IMG_2_URL = "/icons/Background.svg";
+
 
 
 export async function deliverMail(reqbody) {
@@ -36,7 +31,7 @@ export async function deliverMail(reqbody) {
   const htmlTemplate = await readFile(path.join('./server', '/emailnotify.html'), 'utf8');
   const template = handlebars.compile(htmlTemplate);
 
-  const htmlToSend = template({ ...reqbody, IMG_1_URL, IMG_2_URL });
+  const htmlToSend = template({ ...reqbody });
 
   const mailDetails = {
     from: process.env.ADMINEMAIL,
