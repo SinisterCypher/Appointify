@@ -38,19 +38,19 @@ export async function deliverMail(reqbody) {
     to: to,
     subject: message,
     html: htmlToSend,
-    attachments: [
-      {
-        filename: "front-shapes.png",
-        path:"G:\\Learning Programming\\Projects\\Appointment Scheduler\\public\\icons\\front-shapes.png",
-        cid: "front-shape"
-      },
-      {
-        filename: "Background.svg",
-        path: 'G:\\Learning Programming\\Projects\\Appointment Scheduler\\public\\icons\\Background.svg',
-        cid: "background-svg"
-      },
+    // attachments: [
+    //   {
+    //     filename: "front-shapes.png",
+    //     path:"../public/icons/front-shapes.png",
+    //     cid: "front-shape"
+    //   },
+    //   {
+    //     filename: "Background.svg",
+    //     path: '../public/icons/Background.svg',
+    //     cid: "background-svg"
+    //   },
 
-    ]
+    // ]
   };
 
   transporter.sendMail(mailDetails, (error, info) => {
