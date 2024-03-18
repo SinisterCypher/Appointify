@@ -1,9 +1,9 @@
 //Importing necessary pacakages
 
 import express from "express";
-import morgan from 'morgan';
+
 import { deliverMail } from "./handlemail.js";
-// dotenv configuration: loading environment variables from .env into current node process object
+
 
 
 
@@ -16,17 +16,6 @@ app.use(express.static('public/'));
 app.set('view engine', 'ejs');
 app.use(express.json()) // Body parser for handling json data eg: the date selected by user 
 app.use(express.urlencoded({ extended: true }))  // Body Parser for handling urlencoded form data ; attaches the form data into req.body
-
-
-// App Configuration 
-app.use(express.static('public/'));
-app.set('view engine', 'ejs');
-app.use(express.json()) // Body parser for handling json data eg: the date selected by user 
-app.use(express.urlencoded({ extended: true }))  // Body Parser for handling urlencoded form data ; attaches the form data into req.body
-
-if (process.env.NODE_ENV !== 'production') {
-    app.use(morgan('dev'));
-}
 
 
 // App routes
